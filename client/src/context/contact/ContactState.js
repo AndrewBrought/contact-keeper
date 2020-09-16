@@ -37,7 +37,10 @@ const ContactState = props => {
                 phone: '+44 123-1111',
                 type: 'professional'
             },
-        ]
+        ],
+        // This is so when we click edit, whatever contact we click edit for is put into this piece of state,
+        // so it will be an object, and then we can change things in the ui based on that
+        current: null
     };
 
     const [state, dispatch] = useReducer(contactReducer, initialState);
@@ -54,8 +57,14 @@ const ContactState = props => {
     };
 
 //    Set Current Contact
+    const setCurrent = contact => {
+        dispatch({ type: SET_CURRENT, payload: contact });
+    };
 
 //    Clear Current Contact
+    const clearCurrent = () => {
+        dispatch({ type: CLEAR_CURRENT });
+    };
 
 //    Update Contact
 
@@ -67,9 +76,12 @@ const ContactState = props => {
     return (
         <ContactContext.Provider
           value={{
-            contacts: state.contacts,
+              contacts: state.contacts,
+              current: state.current,
               addContact,
-              deleteContact
+              deleteContact,
+              setCurrent,
+              clearCurrent
         }}>
             { props.children }
         </ContactContext.Provider>
