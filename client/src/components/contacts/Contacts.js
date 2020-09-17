@@ -5,12 +5,19 @@ import ContactContext from '../../context/contact/contactContext';
 const Contacts = () => {
     const contactContext = useContext(ContactContext);
 
-    const { contacts } = contactContext;
+    const { contacts, filtered } = contactContext;
+
+    if(contacts.length === 0) {
+       return <h4>Please add a contact</h4>
+    }
 
     return (
         <Fragment>
-            {/*we'r'e going to embed this on our homepage*/}
-            {contacts.map(contact => (
+            {/*We're pulling filtered and contacts out, checking if there's anything in filtered,
+            if there is (!== null), then we map filtered and show the contact item...if there's nothing
+            in filtered, then we're going to show the contacts*/}
+            {filtered !== null ? filtered.map(contact =>  (<ContactItem key={contact.id}
+           contact={contact}/>)) : contacts.map(contact => (
                 <ContactItem key={contact.id} contact={contact}/>
             ))}
         </Fragment>

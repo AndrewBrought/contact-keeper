@@ -40,7 +40,8 @@ const ContactState = props => {
         ],
         // This is so when we click edit, whatever contact we click edit for is put into this piece of state,
         // so it will be an object, and then we can change things in the ui based on that
-        current: null
+        current: null,
+        filtered: null
     };
 
     const [state, dispatch] = useReducer(contactReducer, initialState);
@@ -72,8 +73,14 @@ const ContactState = props => {
     };
 
 //    Filter Contacts
+    const filterContacts = text => {
+        dispatch({ type: FILTER_CONTACTS, payload: text });
+    };
 
 //    Clear Filter
+    const clearFilter = () => {
+        dispatch({ type: CLEAR_FILTER });
+    };
 
     // Here is where we return our provider so we can wrap the entire application with this context
     return (
@@ -81,11 +88,14 @@ const ContactState = props => {
           value={{
               contacts: state.contacts,
               current: state.current,
+              filtered: state.filtered,
               addContact,
               deleteContact,
               setCurrent,
               clearCurrent,
-              updateContact
+              updateContact,
+              filterContacts,
+              clearFilter
         }}>
             { props.children }
         </ContactContext.Provider>

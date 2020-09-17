@@ -36,6 +36,23 @@ export default (state, action) => {
                 ...state,
                 current: null
             };
+        case FILTER_CONTACTS:
+            return {
+                ...state,
+                //For each contact...we create a regular expression which is the text via action.payload then we add
+                //a parameter of 'gi' which means global and case insensitive
+                filtered: state.contacts.filter(contact => {
+                    const regex = new RegExp(`${action.payload}`, 'gi');
+                    //this will return anything where the name or email matches the text that's passed in
+                    return contact.name.match(regex) || contact.email.match(regex);
+
+                })
+            };
+        case CLEAR_FILTER:
+            return {
+                ...state,
+                filtered: null
+            };
         default:
             return state;
     }
