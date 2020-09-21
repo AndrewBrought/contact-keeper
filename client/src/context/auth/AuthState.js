@@ -72,7 +72,30 @@ const AuthState = props => {
     }
 
     // Login User - logs the user in, get the token
-    const login = () => console.log('login user');
+    const login = async formData => {
+        const config = {
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        }
+
+        try {
+            //we can shortcut the url because we added the proxy value of localhost:5000 in our package.json
+            const res = await axios.post('/api/auth', formData, config);
+
+            dispatch({
+                type: LOGIN_SUCCESS,
+                payload: res.data //this response will be the token
+            });
+
+            await loadUser(); //this function (created above) is called once we register
+        } catch (err) {
+            dispatch({
+                type: LOGIN_FAIL,
+                payload: err.response.data.msg // this response will be the message: this user already exists, setup in our user.js
+            });
+        }
+    }
 
     // Logout - destroy the token, clear everything up
     const logout = () => console.log('logout user');
