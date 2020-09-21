@@ -2,6 +2,7 @@ import React, { useReducer } from 'react';
 import axios from 'axios';
 import AuthContext from './authContext';
 import authReducer from './authReducer';
+import setAuthToken from "../../utils/setAuthToken";
 import {
  REGISTER_SUCCESS,
  REGISTER_FAIL,
@@ -25,7 +26,23 @@ const AuthState = props => {
     const [state, dispatch] = useReducer(authReducer, initialState);
 
     // Load User - this will take care of checking which user is logged in, it will hit the auth endpoint and get the user data
-    const loadUser = () => console.log('load user');
+    const loadUser = async () => {
+    //    @todo - load token into global headers
+        if(localStorage.token) {
+            setAuthToken(localStorage.token);
+        }
+
+        try {
+            const res = await axios.get('/api/auth');
+
+            dispatch({
+                type: USER_LOADED,
+                payload: res.data // this is the user data
+            });//this route will check your token and see if you're a valid user
+        } catch (err) {
+            dispatch({ type: AUTH_ERROR });
+        }
+    };
 
 
     // Register User - does just that, sign the user up, get the token back
@@ -45,6 +62,7 @@ const AuthState = props => {
                payload: res.data //this response will be the token
             });
 
+            await loadUser(); //this function (created above) is called once we register
         } catch (err) {
             dispatch({
                 type: REGISTER_FAIL,
