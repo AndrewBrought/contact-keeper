@@ -98,7 +98,7 @@ const AuthState = props => {
     }
 
     // Logout - destroy the token, clear everything up
-    const logout = () => console.log('logout user');
+    const logout = () => dispatch({ type: LOGOUT });
 
     //Clear Errors - clears out any errors in the state
     const clearErrors = () => dispatch({ type: CLEAR_ERRORS });
