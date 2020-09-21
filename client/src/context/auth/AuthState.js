@@ -1,4 +1,5 @@
 import React, { useReducer } from 'react';
+import axios from 'axios';
 import AuthContext from './authContext';
 import authReducer from './authReducer';
 import {
@@ -24,14 +25,42 @@ const AuthState = props => {
     const [state, dispatch] = useReducer(authReducer, initialState);
 
     // Load User - this will take care of checking which user is logged in, it will hit the auth endpoint and get the user data
+    const loadUser = () => console.log('load user');
+
 
     // Register User - does just that, sign the user up, get the token back
+    const register = async formData => {
+        const config = {
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        }
+
+        try {
+            //we can shortcut the url because we added the proxy value of localhost:5000 in our package.json
+            const res = await axios.post('/api/users', formData, config);
+
+            dispatch({
+               type: REGISTER_SUCCESS,
+               payload: res.data //this response will be the token
+            });
+
+        } catch (err) {
+            dispatch({
+                type: REGISTER_FAIL,
+                payload: err.response.data.msg // this response will be the message: this user already exists, setup in our user.js
+            });
+        }
+    }
 
     // Login User - logs the user in, get the token
+    const login = () => console.log('login user');
 
     // Logout - destroy the token, clear everything up
+    const logout = () => console.log('logout user');
 
     //Clear Errors - clears out any errors in the state
+    const clearErrors = () => dispatch({ type: CLEAR_ERRORS });
 
     // Here is where we return our provider so we can wrap the entire application with this context
     return (
@@ -42,6 +71,11 @@ const AuthState = props => {
                 loading: state.loading,
                 user: state.user,
                 error: state.error,
+                register,
+                loadUser,
+                login,
+                logout,
+                clearErrors
             }}>
             { props.children }
         </AuthContext.Provider>
