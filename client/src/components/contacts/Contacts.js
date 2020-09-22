@@ -20,12 +20,12 @@ const Contacts = () => {
             if there is (!== null), then we map filtered and show the contact item...if there's nothing
             in filtered, then we're going to show the contacts*/}
                 {filtered !== null ? filtered.map(contact => (
-                        <CSSTransition key={contact.id} timeout={500} classNames='item'>
+                        <CSSTransition key={contact._id} timeout={500} classNames='item'>
                             <ContactItem contact={contact}/>
                         </CSSTransition>
                     ))
                     : contacts.map(contact => (
-                        <CSSTransition key={contact.id} timeout={500} classNames='item'>
+                        <CSSTransition key={contact._id} timeout={500} classNames='item'>
                             <ContactItem contact={contact}/>
                         </CSSTransition>
                     ))}
