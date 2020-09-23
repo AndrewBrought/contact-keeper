@@ -78,7 +78,7 @@ router.put('/:id', auth, async (req, res) => {
         if(!contact) return res.status(404).json({ msg: 'Contact not found' });
 
     //    make sure user owns contact, int the tut it's supposed to be contact.user.toString() but intellij is telling me it's not an appropriate comparison...leaving it off for now
-        if(contact.user !== req.user.id) {
+        if(contact.user.toString() !== req.user.id) {
             return res.status(401).json({ msg: 'Not authorized' });
         }
 
