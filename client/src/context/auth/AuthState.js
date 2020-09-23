@@ -88,7 +88,7 @@ const AuthState = props => {
                 payload: res.data //this response will be the token
             });
 
-            await loadUser(); //this function (created above) is called once we register
+            await loadUser(); 
         } catch (err) {
             dispatch({
                 type: LOGIN_FAIL,
