@@ -7,6 +7,7 @@ const Alerts = () => {
     return (
        //  It's going to look at the alerts in the context in our state, if there is anything
         //  it's going to loop through them and output this jsx
+       // Adding to save to git
 
        alertContext.alerts.length > 0 && alertContext.alerts.map(alert => (
            <div key={alert.id} className={`alert alert-${alert.type}`}>
