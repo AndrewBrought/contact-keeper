@@ -86,6 +86,7 @@ const ContactForm = () => {
                 value={phone}
                 onChange={onChange}
             />
+
             <h4>LinkedIn</h4>
             <input
                 type="text"
@@ -94,6 +95,7 @@ const ContactForm = () => {
                 value={linkedIn}
                 onChange={onChange}
             />
+
             <h4>Facebook</h4>
             <input
                 type="text"
@@ -102,6 +104,7 @@ const ContactForm = () => {
                 value={facebook}
                 onChange={onChange}
             />
+
             <h4>Instagram</h4>
             <input
                 type="text"
@@ -110,6 +113,7 @@ const ContactForm = () => {
                 value={instagram}
                 onChange={onChange}
             />
+
             <h4>Twitter</h4>
             <input
                 type="text"
