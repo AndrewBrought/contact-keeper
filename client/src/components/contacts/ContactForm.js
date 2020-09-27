@@ -86,35 +86,39 @@ const ContactForm = () => {
                 value={phone}
                 onChange={onChange}
             />
+            <h4>LinkedIn</h4>
             <input
                 type="text"
-                placeholder='LinkedIn URL name'
+                placeholder='URL Name (ex: First-nameLast-name)'
                 name='linkedIn'
                 value={linkedIn}
                 onChange={onChange}
             />
+            <h4>Facebook</h4>
             <input
                 type="text"
-                placeholder='Facebook URL name'
+                placeholder='URL Name (ex: first-name.last-name)'
                 name='facebook'
                 value={facebook}
                 onChange={onChange}
             />
+            <h4>Instagram</h4>
             <input
                 type="text"
-                placeholder='Instagram URL name'
+                placeholder='URL Name (ex: First-nameLast-name)'
                 name='instagram'
                 value={instagram}
                 onChange={onChange}
             />
+            <h4>Twitter</h4>
             <input
                 type="text"
-                placeholder='Twitter URL name'
+                placeholder='URL Name (ex: First-nameLast-name)'
                 name='twitter'
                 value={twitter}
                 onChange={onChange}
             />
-            <h5>Contact Type</h5>
+            <h4>Contact Type</h4>
             <input type='radio'
                    name='type'
                    value='personal'
