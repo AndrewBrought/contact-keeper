@@ -16,6 +16,10 @@ const ContactForm = () => {
                 name: '',
                 email: '',
                 phone: '',
+                linkedIn: '',
+                facebook: '',
+                instagram: '',
+                twitter: '',
                 type: 'personal'
             });
         }
@@ -27,10 +31,14 @@ const ContactForm = () => {
         name: '',
         email: '',
         phone: '',
+        linkedIn: '',
+        facebook: '',
+        instagram: '',
+        twitter: '',
         type: 'personal'
     });
 
-    const { name, email, phone, type } = contact;
+    const { name, email, phone, linkedIn, facebook, instagram, twitter, type } = contact;
 
     const onChange = e => setContact({...contact, [e.target.name]: e.target.value });
 
@@ -76,6 +84,34 @@ const ContactForm = () => {
                 placeholder='Phone'
                 name='phone'
                 value={phone}
+                onChange={onChange}
+            />
+            <input
+                type="text"
+                placeholder='LinkedIn URL name'
+                name='linkedIn'
+                value={linkedIn}
+                onChange={onChange}
+            />
+            <input
+                type="text"
+                placeholder='Facebook URL name'
+                name='facebook'
+                value={facebook}
+                onChange={onChange}
+            />
+            <input
+                type="text"
+                placeholder='Instagram URL name'
+                name='instagram'
+                value={instagram}
+                onChange={onChange}
+            />
+            <input
+                type="text"
+                placeholder='Twitter URL name'
+                name='twitter'
+                value={twitter}
                 onChange={onChange}
             />
             <h5>Contact Type</h5>

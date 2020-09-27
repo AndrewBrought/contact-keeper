@@ -16,6 +16,18 @@ const ContactSchema = mongoose.Schema({
     phone: {
         type: String,
     },
+    linkedIn: {
+      type: String,
+    },
+    facebook: {
+        type: String,
+    },
+    instagram: {
+        type: String,
+    },
+    twitter: {
+        type: String,
+    },
     type: {
         type: String,
       default: 'personal'

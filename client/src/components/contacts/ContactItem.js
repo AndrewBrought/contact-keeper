@@ -6,7 +6,7 @@ const ContactItem = ({ contact }) => {
     const contactContext = useContext(ContactContext);
     const { deleteContact, setCurrent, clearCurrent } = contactContext;
 
-    const { _id, name, email, phone, type } = contact;
+    const { _id, name, email, phone, linkedIn, facebook, instagram, twitter, type } = contact;
 
     const onDelete = () => {
         deleteContact(_id);
@@ -20,11 +20,28 @@ const ContactItem = ({ contact }) => {
             </h3>
             <ul className='list'>
                 {email && (<li>
-                    <i className="fas fa-envelope-open"/> {email}
+                    <i className="fas fa-envelope-open"/> <a href={`mailto:${email}`}>{email}</a>
                 </li>)}
                 {phone && (<li>
-                    <i className="fas fa-phone"/> {phone}
+                    <i className="fas fa-phone"/> <a href={`tel:${phone}`}>{phone}</a>
                 </li>)}
+
+                    {linkedIn && (<li>
+                        <i className="fab fa-linkedin" /> <a href={`https://www.linkedin.com/in/${linkedIn}`} target='_blank'>{linkedIn}</a>
+                    </li>)}
+
+                    {facebook && (<li>
+                        <i className="fab fa-facebook-square" /> <a href={`https://www.facebook.com/${facebook}`} target='_blank'>{facebook}</a>
+                    </li>)}
+
+                    {instagram && (<li>
+                        <i className="fab fa-instagram" /> <a href={`instagram://user?username=${instagram}`}>{instagram}</a>
+                    </li>)}
+
+                    {twitter && (<li>
+                        <i className="fab fa-twitter-square" /> <a href={`https://twitter.com/${twitter}`} target='_blank'>{twitter}</a>
+                    </li>)}
+
             </ul>
             <p>
                 <button className="btn btn-dark btn-sm" onClick={() => setCurrent(contact)}>Edit</button>
