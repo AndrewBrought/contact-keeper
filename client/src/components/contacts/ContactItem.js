@@ -25,22 +25,21 @@ const ContactItem = ({ contact }) => {
                 {phone && (<li>
                     <i className="fas fa-phone"/> <a href={`tel:${phone}`}>{phone}</a>
                 </li>)}
+                {linkedIn && (<li>
+                    <i className="fab fa-linkedin" /> <a href={`https://www.linkedin.com/in/${linkedIn}`} target='_blank'>{linkedIn}</a>
+                </li>)}
 
-                    {linkedIn && (<li>
-                        <i className="fab fa-linkedin" /> <a href={`https://www.linkedin.com/in/${linkedIn}`} target='_blank'>{linkedIn}</a>
-                    </li>)}
+                {facebook && (<li>
+                    <i className="fab fa-facebook-square" /> <a href={`https://www.facebook.com/${facebook}`} target='_blank'>{facebook}</a>
+                </li>)}
 
-                    {facebook && (<li>
-                        <i className="fab fa-facebook-square" /> <a href={`https://www.facebook.com/${facebook}`} target='_blank'>{facebook}</a>
-                    </li>)}
+                {instagram && (<li>
+                    <i className="fab fa-instagram" /> <a href={`instagram://user?username=${instagram}`}>{instagram}</a>
+                </li>)}
 
-                    {instagram && (<li>
-                        <i className="fab fa-instagram" /> <a href={`instagram://user?username=${instagram}`}>{instagram}</a>
-                    </li>)}
-
-                    {twitter && (<li>
-                        <i className="fab fa-twitter-square" /> <a href={`https://twitter.com/${twitter}`} target='_blank'>{twitter}</a>
-                    </li>)}
+                {twitter && (<li>
+                    <i className="fab fa-twitter-square" /> <a href={`https://twitter.com/${twitter}`} target='_blank'>{twitter}</a>
+                </li>)}
 
             </ul>
             <p>
