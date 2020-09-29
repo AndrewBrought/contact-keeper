@@ -56,17 +56,17 @@ const ContactItem = ({ contact }) => {
         }
     }
 
-    // const tagLinkLinedIn = () => {
-    //     if (OSName === "iOS") {
-    //         return <a href={`linkedin://user?username=${linkedIn}`}> {linkedIn}</a>;
-    //     } else if (OSName === "MacOS") {
-    //         return <a href={`https://www.linkedin.com/in/${linkedIn}`} target="_blank"> {linkedIn}</a>;
-    //     } else if(OSName === "Windows") {
-    //         return <a href={`https://www.linkedin.com/in/${linkedIn}`} target="_blank"> {linkedIn}</a>;
-    //     } else if(OSName === "Android") {
-    //         return <a href={`linkedin://user?username=${linkedIn}`}> {linkedIn}</a>;
-    //     }
-    // }
+    const tagLinkLinedIn = () => {
+        if (OSName === "iOS") {
+            return <a href={`linkedin://user?username=${linkedIn}`}> {linkedIn}</a>;
+        } else if (OSName === "MacOS") {
+            return <a href={`https://www.linkedin.com/in/${linkedIn}`} target="_blank"> {linkedIn}</a>;
+        } else if(OSName === "Windows") {
+            return <a href={`https://www.linkedin.com/in/${linkedIn}`} target="_blank"> {linkedIn}</a>;
+        } else if(OSName === "Android") {
+            return <a href={`linkedin://user?username=${linkedIn}`}> {linkedIn}</a>;
+        }
+    }
 
     return (
         <div className='card bg-light'>
