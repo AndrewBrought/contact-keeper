@@ -80,6 +80,7 @@ const ContactItem = ({ contact }) => {
                 {phone && (<li>
                     <i className="fas fa-phone"/> <a href={`tel:${phone}`}>{phone}</a>
                 </li>)}
+
                 {linkedIn && (<li>
                     <i className="fab fa-linkedin" />
                     {tagLinkLinedIn()}
