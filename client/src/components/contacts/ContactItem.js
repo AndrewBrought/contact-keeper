@@ -1,8 +1,8 @@
-import React, { useContext } from 'react';
+import React, {useContext} from 'react';
 import PropTypes from 'prop-types';
 import ContactContext from '../../context/contact/contactContext';
 
-const ContactItem = ({ contact }) => {
+const ContactItem = ({contact}) => {
     const contactContext = useContext(ContactContext);
     const {deleteContact, setCurrent, clearCurrent} = contactContext;
 
@@ -20,51 +20,51 @@ const ContactItem = ({ contact }) => {
     if (navigator.platform.indexOf("Android") !== -1) OSName = "Android";
     if (navigator.platform.indexOf("Win") !== -1) OSName = "Windows";
 
-   const tagLinkInstagram = () => {
-       // if (OSName === "iOS") {
-       //     return <a href={`instagram://user?username=${instagram}`}> {instagram}</a>;
-       // } else
-       if (OSName === "MacOS") {
-           return <a href={`https://www.instagram.com/${instagram}`} target="_blank"> {instagram}</a>;
-       } else if(OSName === "Windows") {
-           return <a href={`https://www.instagram.com/${instagram}`} target="_blank"> {instagram}</a>;
-       } else if (OSName === 'iOS') {
-           let openedApp = false;
-               let iosLink = `instagram://user?username=${instagram}`
+    const tagLinkInstagram = () => {
+        // if (OSName === "iOS") {
+        //     return <a href={`instagram://user?username=${instagram}`}> {instagram}</a>;
+        // } else
+        if (OSName === "MacOS") {
+            return <a href={`https://www.instagram.com/${instagram}`} target="_blank"> {instagram}</a>;
+        } else if (OSName === "Windows") {
+            return <a href={`https://www.instagram.com/${instagram}`} target="_blank"> {instagram}</a>;
+        } else if (OSName === 'iOS') {
+            let openedApp = false;
+            let iosLink = `instagram://user?username=${instagram}`
 
-           const openAppOrStore = () => {
-               setTimeout(function () {
-                   if (!openedApp) {
-                       iosLink =  `apps.apple.com/us/app/instagram/id389801252`
-                   }
-               }, 25);
-               // const iosLink = `instagram://user?username=${instagram}`;
-               try {
-                   window.location = iosLink;
-                   if (window.location.href.indexOf("instagram://") !== -1) {
-                       openedApp = true;
-                   }
-               } catch (e) {
-               }
-           }
+            const openAppOrStore = () => {
+                setTimeout(function () {
+                    if (!openedApp) {
+                        iosLink = `apps.apple.com/us/app/instagram/id389801252`
+                    }
+                }, 25);
+                // const iosLink = `instagram://user?username=${instagram}`;
+                try {
+                    window.location = iosLink;
+                    if (window.location.href.indexOf("instagram://") !== -1) {
+                        openedApp = true;
+                    }
+                } catch (e) {
+                }
+            }
 
-               const parts = window.location.href.split('/');
-               const consultationId = parts[parts.length - 2];
-           setTimeout(function () {
-               if (window.location.href.indexOf(consultationId) !== -1) {
-                   if (OSName === "MacOS") {
-                       openAppOrStore();
-                   }
-               }
-           }, 25);
-          return <a href={iosLink}> {instagram}</a>
-       }
+            const parts = window.location.href.split('/');
+            const consultationId = parts[parts.length - 2];
+            setTimeout(function () {
+                if (window.location.href.indexOf(consultationId) !== -1) {
+                    if (OSName === "MacOS") {
+                        openAppOrStore();
+                    }
+                }
+            }, 25);
+            return <a href={iosLink}> {instagram}</a>
+        }
 
-    // else if(OSName === "Android") {
-    //     return <a href={`instagram://user?username=${instagram}`}>{instagram}</a>;
-    // }
+        // else if(OSName === "Android") {
+        //     return <a href={`instagram://user?username=${instagram}`}>{instagram}</a>;
+        // }
 
-   }
+    }
 
 
     // const tagLinkFacebook = () => {
@@ -96,9 +96,9 @@ const ContactItem = ({ contact }) => {
             return <a href={`linkedin://user?username=${linkedIn}`}> {linkedIn}</a>;
         } else if (OSName === "MacOS") {
             return <a href={`https://www.linkedin.com/in/${linkedIn}`} target="_blank"> {linkedIn}</a>;
-        } else if(OSName === "Windows") {
+        } else if (OSName === "Windows") {
             return <a href={`https://www.linkedin.com/in/${linkedIn}`} target="_blank"> {linkedIn}</a>;
-        } else if(OSName === "Android") {
+        } else if (OSName === "Android") {
             return <a href={`linkedin://user?username=${linkedIn}`}> {linkedIn}</a>;
         }
     }
@@ -106,38 +106,41 @@ const ContactItem = ({ contact }) => {
     return (
         <div className='card bg-light'>
             <h3 className="text-primary text-left">
-                {name}{' '} <span style={{ float: 'right' }} className={'badge ' + (type === 'professional' ? 'badge-success' : 'badge-primary')}>{type.charAt(0).toUpperCase() + type.slice(1)}</span>
+                {name}{' '} <span style={{float: 'right'}}
+                                  className={'badge ' + (type === 'professional' ? 'badge-success' : 'badge-primary')}>{type.charAt(0).toUpperCase() + type.slice(1)}</span>
             </h3>
             <ul className='list'>
+
                 {email && (<li>
                     <i className="fas fa-envelope-open"/> <a href={`mailto:${email}`}>{email}</a>
                 </li>)}
+
                 {phone && (<li>
                     <i className="fas fa-phone"/> <a href={`tel:${phone}`}>{phone}</a>
                 </li>)}
 
                 {linkedIn && (<li>
-                    <i className="fab fa-linkedin" />
+                    <i className="fab fa-linkedin"/>
                     {tagLinkLinedIn()}
                     {/*<a href={`https://l.linklyhq.com/l/7PG7${linkedIn}`} target="_blank"> {linkedIn}</a>*/}
 
                 </li>)}
 
                 {facebook && (<li>
-                    <i className="fab fa-facebook-square" />
+                    <i className="fab fa-facebook-square"/>
 
                     {/*{tagLinkFacebook()}*/}
                     <a href={`https://www.facebook.com/${facebook}`} target="_blank"> {facebook}</a>
                 </li>)}
 
                 {instagram && (<li>
-                    <i className="fab fa-instagram" />
+                    <i className="fab fa-instagram"/>
                     {tagLinkInstagram()}
 
                 </li>)}
 
                 {twitter && (<li>
-                    <i className="fab fa-twitter-square" />
+                    <i className="fab fa-twitter-square"/>
                     {/*{tagLinkTwitter()}*/}
                     <a href={`https://www.twitter.com/${twitter}`} target="_blank"> {twitter}</a>
                 </li>)}
