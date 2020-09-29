@@ -45,7 +45,6 @@ const ContactItem = ({ contact }) => {
                    }
                } catch (e) {
                }
-
            }
                const parts = window.location.href.split('/');
                const consultationId = parts[parts.length - 2];
