@@ -29,6 +29,7 @@ const ContactItem = ({contact}) => {
         } else if (OSName === "Windows") {
             return <a href={`https://www.instagram.com/${instagram}`} target="_blank"> {instagram}</a>;
         } else if (OSName === 'iOS') {
+
             let openedApp = false;
             let iosLink = `instagram://user?username=${instagram}`
 
