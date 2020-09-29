@@ -32,10 +32,10 @@ const ContactItem = ({ contact }) => {
            let openedApp = false;
 
            const openAppOrStore = () => {
-               let iosLink = `instagram://user?username=${instagram}`
+               let iosLink = <a href={`instagram://user?username=${instagram}`}> {instagram}</a>
                setTimeout(function () {
                    if (!openedApp) {
-                       iosLink = window.location = "apps.apple.com/us/app/instagram/id389801252";
+                       window.location = <a href={`apps.apple.com/us/app/instagram/id389801252`}> {instagram}</a>
                    }
                }, 25);
                // const iosLink = `instagram://user?username=${instagram}`;
