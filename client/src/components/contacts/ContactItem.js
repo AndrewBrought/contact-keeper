@@ -21,40 +21,71 @@ const ContactItem = ({ contact }) => {
     if (navigator.platform.indexOf("Win") !== -1) OSName = "Windows";
 
    const tagLinkInstagram = () => {
-        if (OSName === "iOS") {
-            return <a href={`instagram://user?username=${instagram}`}> {instagram}</a>;
-        } else if (OSName === "MacOS") {
-            return <a href={`https://www.instagram.com/${instagram}`} target="_blank"> {instagram}</a>;
-        } else if(OSName === "Windows") {
-            return <a href={`https://www.instagram.com/${instagram}`} target="_blank"> {instagram}</a>;
-        } else if(OSName === "Android") {
-            return <a href={`instagram://user?username=${instagram}`}>{instagram}</a>;
-        }
-    }
+       // if (OSName === "iOS") {
+       //     return <a href={`instagram://user?username=${instagram}`}> {instagram}</a>;
+       // } else
+       if (OSName === "MacOS") {
+           return <a href={`https://www.instagram.com/${instagram}`} target="_blank"> {instagram}</a>;
+       } else if(OSName === "Windows") {
+           return <a href={`https://www.instagram.com/${instagram}`} target="_blank"> {instagram}</a>;
+       } else if (OSName === 'iOS') {
+           let openedApp = false;
 
-    const tagLinkFacebook = () => {
-        if (OSName === "iOS") {
-            return <a href={`facebook://user?username=${facebook}`}> {facebook}</a>;
-        } else if (OSName === "MacOS") {
-            return <a href={`https://www.facebook.com/${facebook}`} target="_blank"> {facebook}</a>;
-        } else if(OSName === "Windows") {
-            return <a href={`https://www.facebook.com/${facebook}`} target="_blank"> {facebook}</a>;
-        } else if(OSName === "Android") {
-            return <a href={`facebook://user?username=${facebook}`}> {facebook}</a>;
-        }
-    }
+           function openAppOrStore() {
+               setTimeout(function () {
+                   if (!openedApp) {
+                       window.location = "https://apps.apple.com/us/app/instagram";
+                   }
+               }, 25);
+               const parts = window.location.href.split('/');
+               const consultationId = parts[parts.length - 2];
+               const iosLink = <a href={`instagram://user?username=${instagram}`}> {instagram}</a>;
+               try {
+                   window.location = iosLink;
+                   if (window.location.href.indexOf("instagram://") !== -1) {
+                       openedApp = true;
+                   }
+               } catch (e) {
+               }
+           }
 
-    const tagLinkTwitter = () => {
-        if (OSName === "iOS") {
-            return <a href={`twitter://user?username=${twitter}`}> {twitter}</a>;
-        } else if (OSName === "MacOS") {
-            return <a href={`https://www.twitter.com/${twitter}`} target="_blank"> {twitter}</a>;
-        } else if(OSName === "Windows") {
-            return <a href={`https://www.twitter.com/${twitter}`} target="_blank"> {twitter}</a>;
-        } else if(OSName === "Android") {
-            return <a href={`twitter://user?username=${twitter}`}> {twitter}</a>;
-        }
-    }
+           setTimeout(function () {
+               if (window.location.href.indexOf('consultation') !== -1) {
+                   if (OSName === "MacOS") {
+                       openAppOrStore();
+                   }
+               }
+           }, 25);
+       }
+    // else if(OSName === "Android") {
+    //     return <a href={`instagram://user?username=${instagram}`}>{instagram}</a>;
+    // }
+   }
+
+
+    // const tagLinkFacebook = () => {
+    //     if (OSName === "iOS") {
+    //         return <a href={`facebook://user?username=${facebook}`}> {facebook}</a>;
+    //     } else if (OSName === "MacOS") {
+    //         return <a href={`https://www.facebook.com/${facebook}`} target="_blank"> {facebook}</a>;
+    //     } else if(OSName === "Windows") {
+    //         return <a href={`https://www.facebook.com/${facebook}`} target="_blank"> {facebook}</a>;
+    //     } else if(OSName === "Android") {
+    //         return <a href={`facebook://user?username=${facebook}`}> {facebook}</a>;
+    //     }
+    // }
+
+    // const tagLinkTwitter = () => {
+    //     if (OSName === "iOS") {
+    //         return <a href={`twitter://user?username=${twitter}`}> {twitter}</a>;
+    //     } else if (OSName === "MacOS") {
+    //         return <a href={`https://www.twitter.com/${twitter}`} target="_blank"> {twitter}</a>;
+    //     } else if(OSName === "Windows") {
+    //         return <a href={`https://www.twitter.com/${twitter}`} target="_blank"> {twitter}</a>;
+    //     } else if(OSName === "Android") {
+    //         return <a href={`twitter://user?username=${twitter}`}> {twitter}</a>;
+    //     }
+    // }
 
     const tagLinkLinedIn = () => {
         if (OSName === "iOS") {
@@ -90,7 +121,8 @@ const ContactItem = ({ contact }) => {
 
                 {facebook && (<li>
                     <i className="fab fa-facebook-square" />
-                    {tagLinkFacebook()}
+                    {/*{tagLinkFacebook()}*/}
+                    <a href={`https://www.facebook.com/${facebook}`} target="_blank"> {facebook}</a>
                 </li>)}
 
                 {instagram && (<li>
@@ -101,7 +133,8 @@ const ContactItem = ({ contact }) => {
 
                 {twitter && (<li>
                     <i className="fab fa-twitter-square" />
-                    {tagLinkTwitter()}
+                    {/*{tagLinkTwitter()}*/}
+                    <a href={`https://www.twitter.com/${twitter}`} target="_blank"> {twitter}</a>
                 </li>)}
 
             </ul>
