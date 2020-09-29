@@ -61,6 +61,7 @@ const ContactItem = ({ contact }) => {
     //     return <a href={`instagram://user?username=${instagram}`}>{instagram}</a>;
     // }
        return <a href={`instagram://user?username=${instagram}`}>{instagram}</a>;
+
    }
 
 
