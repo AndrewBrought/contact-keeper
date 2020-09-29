@@ -31,13 +31,14 @@ const ContactItem = ({ contact }) => {
        } else if (OSName === 'iOS') {
            let openedApp = false;
 
-           function openAppOrStore() {
+           const openAppOrStore = () => {
+               let iosLink = `instagram://user?username=${instagram}`
                setTimeout(function () {
                    if (!openedApp) {
-                       window.location = "apps.apple.com/us/app/instagram/id389801252";
+                       iosLink = window.location = "apps.apple.com/us/app/instagram/id389801252";
                    }
                }, 25);
-               const iosLink = `instagram://user?username=${instagram}`;
+               // const iosLink = `instagram://user?username=${instagram}`;
                try {
                    window.location = iosLink;
                    if (window.location.href.indexOf("instagram://") !== -1) {
@@ -64,7 +65,7 @@ const ContactItem = ({ contact }) => {
     // }
 
 
-      return <a href={`instagram://user?username=${instagram}`}> {instagram}</a>
+      // return <a href={openAppOrStore}> {instagram}</a>
    }
 
 
