@@ -95,7 +95,7 @@ const ContactItem = ({ contact }) => {
                 {instagram && (<li>
                     <i className="fab fa-instagram" />
                     {tagLinkInstagram()}
-                    {/*<a href={`instagram://user?username=${instagram}`}>{instagram}</a>*/}
+
                 </li>)}
 
                 {twitter && (<li>
