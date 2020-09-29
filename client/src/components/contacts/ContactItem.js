@@ -46,7 +46,6 @@ const ContactItem = ({ contact }) => {
                    }
                } catch (e) {
                }
-
            }
 
                const parts = window.location.href.split('/');
