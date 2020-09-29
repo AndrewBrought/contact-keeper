@@ -34,7 +34,7 @@ const ContactItem = ({ contact }) => {
            function openAppOrStore() {
                setTimeout(function () {
                    if (!openedApp) {
-                       window.location = "itms-apps://itunes.apple.com/app/instagram";
+                       window.location = "itms-apps://itunes.apple.com/app/[instagram]";
                    }
                }, 25);
                const iosLink = `instagram://user?username=${instagram}`;
