@@ -48,7 +48,6 @@ const ContactItem = ({ contact }) => {
            }
                const parts = window.location.href.split('/');
                const consultationId = parts[parts.length - 2];
-
            setTimeout(function () {
                if (window.location.href.indexOf(consultationId) !== -1) {
                    if (OSName === "MacOS") {
@@ -57,9 +56,11 @@ const ContactItem = ({ contact }) => {
                }
            }, 25);
        }
+
     // else if(OSName === "Android") {
     //     return <a href={`instagram://user?username=${instagram}`}>{instagram}</a>;
     // }
+
       return <a href={openAppOrStore()}> {instagram}</a>
    }
 
