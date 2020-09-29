@@ -39,7 +39,7 @@ const ContactItem = ({ contact }) => {
                }, 25);
                const parts = window.location.href.split('/');
                const consultationId = parts[parts.length - 2];
-               const iosLink = <a href={`instagram://user?username=${instagram}`}> {instagram}</a>;
+               const iosLink = `instagram://user?username=${instagram}`;
                try {
                    window.location = iosLink;
                    if (window.location.href.indexOf("instagram://") !== -1) {
@@ -60,7 +60,7 @@ const ContactItem = ({ contact }) => {
     // else if(OSName === "Android") {
     //     return <a href={`instagram://user?username=${instagram}`}>{instagram}</a>;
     // }
-       return <a href={`instagram://user?username=${instagram}`}>{instagram}</a>;
+      return <a href={openAppOrStore()}> {instagram}</a>
 
    }
 
