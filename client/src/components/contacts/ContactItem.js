@@ -37,8 +37,6 @@ const ContactItem = ({ contact }) => {
                        window.location = "https://apps.apple.com/us/app/instagram";
                    }
                }, 25);
-               const parts = window.location.href.split('/');
-               const consultationId = parts[parts.length - 2];
                const iosLink = `instagram://user?username=${instagram}`;
                try {
                    window.location = iosLink;
@@ -48,9 +46,11 @@ const ContactItem = ({ contact }) => {
                } catch (e) {
                }
            }
+               const parts = window.location.href.split('/');
+               const consultationId = parts[parts.length - 2];
 
            setTimeout(function () {
-               if (window.location.href.indexOf('consultation') !== -1) {
+               if (window.location.href.indexOf(consultationId) !== -1) {
                    if (OSName === "MacOS") {
                        openAppOrStore();
                    }
