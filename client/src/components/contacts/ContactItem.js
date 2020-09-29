@@ -121,6 +121,7 @@ const ContactItem = ({ contact }) => {
 
                 {facebook && (<li>
                     <i className="fab fa-facebook-square" />
+
                     {/*{tagLinkFacebook()}*/}
                     <a href={`https://www.facebook.com/${facebook}`} target="_blank"> {facebook}</a>
                 </li>)}
