@@ -41,7 +41,6 @@ const ContactItem = ({contact}) => {
             iosLink = `instagram://user?username=${instagram}`;
 
             return <a href={iosLink}> {instagram}</a>
-
         }
     }
             // const tagLinkFacebook = () => {
