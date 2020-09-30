@@ -48,6 +48,7 @@ const ContactItem = ({contact}) => {
                     }
                 };
 
+
                 app.launchApp();
 
             })();
