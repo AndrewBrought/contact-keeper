@@ -37,6 +37,7 @@ const ContactItem = ({contact}) => {
             (function() {
                 var app = {
                     launchApp: function() {
+                        this.timer = this.timer.bind(this);
                         window.location.replace(`instagram://user?username=${instagram}`);
                         this.timer = setTimeout(this.openWebApp, 1000);
                     },
