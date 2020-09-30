@@ -52,6 +52,7 @@ const ContactItem = ({contact}) => {
             })();
 
                     return <a href={app}> {instagram}</a>
+
             }
             // const tagLinkFacebook = () => {
             //     if (OSName === "iOS") {
