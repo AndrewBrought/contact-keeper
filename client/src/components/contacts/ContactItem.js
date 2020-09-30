@@ -34,21 +34,21 @@ const ContactItem = ({contact}) => {
                 // iosLink = "apps.apple.com/us/app/instagram/id389801252";
                 // iosLink = 'https://www.instagram.com/';
 
-            const openAppOrStore = () => {
-                    let app = {
-                        launchApp: function () {
-                            window.location.replace(`instagram://user?username=${instagram}`);
-                            this.timer = setTimeout(this.openWebApp, 1000);
-                        },
+            (function() {
+                var app = {
+                    launchApp: function() {
+                        window.location.replace(`instagram://user?username=${instagram}`);
+                        this.timer = setTimeout(this.openWebApp, 1000);
+                    },
 
-                        openWebApp: function () {
-                            window.location.replace("apps.apple.com/us/app/instagram/id389801252");
-                        }
-                    };
+                    openWebApp: function() {
+                        window.location.replace("apps.apple.com/us/app/instagram/id389801252");
+                    }
+                };
 
-                    app.launchApp();
-                }
-                    return <a href={openAppOrStore()}> {instagram}</a>
+                app.launchApp();
+            })();
+                    return <a href={app}> {instagram}</a>
             }
             // const tagLinkFacebook = () => {
             //     if (OSName === "iOS") {
