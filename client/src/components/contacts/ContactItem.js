@@ -33,17 +33,18 @@ const ContactItem = ({contact}) => {
             // let iosLink = `instagram://user?username=${instagram}`
                 // iosLink = "apps.apple.com/us/app/instagram/id389801252";
                 // iosLink = 'https://www.instagram.com/';
+            let iosLink = window.location;
 
             (function() {
                 const app = {
                     launchApp: function () {
                         this.timer = this.timer.bind(this);
-                        window.location.replace(`instagram://user?username=${instagram}`);
+                        iosLink.replace(`instagram://user?username=${instagram}`);
                         this.timer = setTimeout(this.openWebApp, 1000);
                     },
 
                     openWebApp: function () {
-                        window.location.replace("apps.apple.com/us/app/instagram/id389801252");
+                        iosLink.replace("apps.apple.com/us/app/instagram/id389801252");
                     }
                 };
 
@@ -51,7 +52,7 @@ const ContactItem = ({contact}) => {
 
             })();
 
-                    return <a href={app}> {instagram}</a>
+                    return <a href={iosLink}> {instagram}</a>
 
             }
             // const tagLinkFacebook = () => {
