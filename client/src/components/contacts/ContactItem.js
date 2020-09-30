@@ -65,9 +65,7 @@ const ContactItem = ({contact}) => {
         // else if(OSName === "Android") {
         //     return <a href={`instagram://user?username=${instagram}`}>{instagram}</a>;
         // }
-
     }
-
 
     // const tagLinkFacebook = () => {
     //     if (OSName === "iOS") {
