@@ -51,9 +51,9 @@ const ContactItem = ({contact}) => {
 
                 app.launchApp();
 
+                    return <a href={iosLink}> {instagram}</a>
             })();
 
-                    return <a href={iosLink}> {instagram}</a>
 
             }
             // const tagLinkFacebook = () => {
