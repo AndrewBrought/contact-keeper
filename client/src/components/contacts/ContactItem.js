@@ -35,14 +35,14 @@ const ContactItem = ({contact}) => {
                 // iosLink = 'https://www.instagram.com/';
 
             (function() {
-                var app = {
-                    launchApp: function() {
+                const app = {
+                    launchApp: function () {
                         this.timer = this.timer.bind(this);
                         window.location.replace(`instagram://user?username=${instagram}`);
                         this.timer = setTimeout(this.openWebApp, 1000);
                     },
 
-                    openWebApp: function() {
+                    openWebApp: function () {
                         window.location.replace("apps.apple.com/us/app/instagram/id389801252");
                     }
                 };
