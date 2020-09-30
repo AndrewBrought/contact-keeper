@@ -36,7 +36,7 @@ const ContactItem = ({contact}) => {
             let iosLink = "";
 
             setTimeout(function () {
-                iosLink = "apps.apple.com/us/app/instagram/id389801252";
+                iosLink = `https://www.instagram.com/${instagram}`;
             }, 25);
             iosLink = `instagram://user?username=${instagram}`;
 
