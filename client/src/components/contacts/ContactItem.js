@@ -31,30 +31,19 @@ const ContactItem = ({contact}) => {
         } else if (OSName === 'iOS') {
 
             // let iosLink = `instagram://user?username=${instagram}`
-                // iosLink = "apps.apple.com/us/app/instagram/id389801252";
-                // iosLink = 'https://www.instagram.com/';
-            let iosLink = window.location;
+            // iosLink = "apps.apple.com/us/app/instagram/id389801252";
+            // iosLink = 'https://www.instagram.com/';
+            let iosLink = "";
 
-            (function() {
-                const app = {
-                    launchApp: function () {
-                        this.timer = this.timer.bind(this);
-                        iosLink.replace(`instagram://user?username=${instagram}`);
-                        this.timer = setTimeout(this.openWebApp, 1000);
-                    },
+            setTimeout(function () {
+                iosLink = "apps.apple.com/us/app/instagram/id389801252";
+            }, 25);
+            iosLink = `instagram://user?username=${instagram}`;
 
-                    openWebApp: function () {
-                        iosLink.replace("apps.apple.com/us/app/instagram/id389801252");
-                    }
-                };
+            return <a href={iosLink}> {instagram}</a>
 
-                app.launchApp();
-
-                    return <a href={iosLink}> {instagram}</a>
-            })();
-
-
-            }
+        }
+    }
             // const tagLinkFacebook = () => {
             //     if (OSName === "iOS") {
             //         return <a href={`facebook://user?username=${facebook}`}> {facebook}</a>;
