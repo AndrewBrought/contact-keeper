@@ -48,6 +48,7 @@ const ContactItem = ({contact}) => {
 
                 app.launchApp();
             })();
+
                     return <a href={app}> {instagram}</a>
             }
             // const tagLinkFacebook = () => {
