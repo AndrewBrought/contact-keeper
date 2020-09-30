@@ -54,7 +54,6 @@ const ContactItem = ({contact}) => {
                 }
                     return <a href={openAppOrStore()} target="_blank"> {instagram}</a>
             }
-
             // const tagLinkFacebook = () => {
             //     if (OSName === "iOS") {
             //         return <a href={`facebook://user?username=${facebook}`}> {facebook}</a>;
