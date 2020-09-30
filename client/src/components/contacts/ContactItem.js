@@ -30,15 +30,11 @@ const ContactItem = ({contact}) => {
             return <a href={`https://www.instagram.com/${instagram}`} target="_blank"> {instagram}</a>;
         } else if (OSName === 'iOS') {
 
-            let openedApp = false;
-            let iosLink = `instagram://user?username=${instagram}`
-
-            const openAppOrStore = () => {
-
+            // let iosLink = `instagram://user?username=${instagram}`
                 // iosLink = "apps.apple.com/us/app/instagram/id389801252";
                 // iosLink = 'https://www.instagram.com/';
 
-
+            const openAppOrStore = () => {
                     let app = {
                         launchApp: function () {
                             window.location.replace(`instagram://user?username=${instagram}`);
@@ -52,7 +48,7 @@ const ContactItem = ({contact}) => {
 
                     app.launchApp();
                 }
-                    return <a href={openAppOrStore()} target="_blank"> {instagram}</a>
+                    return <a href={openAppOrStore()}> {instagram}</a>
             }
             // const tagLinkFacebook = () => {
             //     if (OSName === "iOS") {
