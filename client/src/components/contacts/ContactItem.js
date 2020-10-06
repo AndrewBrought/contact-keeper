@@ -35,9 +35,10 @@ const ContactItem = ({contact}) => {
             // iosLink = 'https://www.instagram.com/';
             let iosLink = "";
 
-            setTimeout(function () {
-                iosLink = `https://www.instagram.com/${instagram}`;
-            }, 25);
+            setTimeout(()=> {
+                this.setState( iosLink = `https://www.instagram.com/${instagram}` )
+            }, 25)
+
             iosLink = `instagram://user?username=${instagram}`;
 
             return <a href={iosLink}> {instagram}</a>
