@@ -14,7 +14,7 @@
     "react-scripts": "3.4.3",
     "react-transition-group": "^4.4.1",
     "uuid": "^8.3.0",
-    "node-forge": ">=0.10.0"
+    "node-forge": ">=1.0.0"
   },
   "scripts": {
     "start": "react-scripts start",
